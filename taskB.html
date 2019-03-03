@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>shmaya wherthaim</title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Merienda|Playfair+Display+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+  
+    body {    
+        background-image:url("board.jpeg");  
+        background-repeat: no-repeat;
+        background-position: center; 
+        background-size: cover;
+        margin: 0;
+    }
+
+    .delet{
+      position: relative;  
+    }
+    
+    button{
+     background-image:linear-gradient(-90deg, rgb(133, 76, 1),rgb(224, 148, 5)) ;
+     background-color:rgb(199, 113, 0);
+     color: rgb(255, 255, 255);
+     font-family: 'EB Garamond', serif;
+     font-size:13px ;
+     font-weight:500 ;
+     border-radius: 8px;
+     padding:8px ;
+     margin:10px ;
+    }
+
+    .buttons{
+    position: relative;
+    top: 10px;
+    right: -2px;
+    }
+  
+    h1{
+    text-align: center;
+    font-family: 'Merienda', cursive;
+    font-family: 'Playfair Display SC', serif;
+    font-family: 'Fredericka the Great', cursive;
+    font-weight:600;
+    color:rgb(114, 70, 4);
+    text-shadow: 1px 2px  rgb(3, 3, 2);
+    font-size: 40px;
+    margin: 25px;
+    animation:textDeco 5s;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-iteration-count: infinite;
+    }
+
+    @keyframes textDeco{
+    from{opacity: 1; color: rgb(26, 1, 1);}
+    to{opacity: 0.4;color: rgb(255, 214, 30);}
+    } 
+    
+    .form{
+    background-image: url("https://image.freepik.com/free-vector/polygonal-abstract-background-design_23-2147493966.jpg");
+    background-position: center; 
+    background-size: 660px;
+    border: 2px solid rgb(111, 160, 160);
+    color: rgb(65, 93, 93);
+    height: 220px;
+    width: 600px;
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 20px;
+    margin: auto;
+    z-index: 1;
+    position: sticky;
+    top: 0;       
+    }
+  
+    input{
+    margin-top: 10px;
+    height: 30px;
+    width: 300px;
+    display: inline-block;    
+    }
+   
+    table{
+    margin-left:85px;
+    text-align: justify;
+    font-weight: bold;
+    font-family: 'Merienda', cursive;
+    font-family: 'Playfair Display SC', serif;
+    font-family: 'Fredericka the Great', cursive;
+    }
+
+    td{
+    text-align: justify;
+    width: 65px;
+    }
+
+    .tasksarea{
+    height:800px ;
+    margin-top: 25px;
+    padding:  5.5%;
+    }
+
+    .datime{    
+    position: absolute;
+    bottom: 20px;
+    left: 20px;           
+    }
+
+    .datime p{
+     margin: 5px;
+    }
+
+    .notes{
+    background-image: url("https://previews.123rf.com/images/rustyphil/rustyphil1303/rustyphil130300033/18267873-old-parchment-paper-texture-with-ornate-design.jpg");
+    background-position: center; 
+    background-size: cover;
+    opacity:0.8 ;
+    font-family: 'Merienda', cursive;
+    font-weight:normal;
+    line-height: 1;
+    font-size: 15px;
+    height: 300px;
+    width: 250px;
+    display: inline-block;
+    margin: 25px;
+    padding: 30px;
+    padding-bottom: 50px;
+    word-wrap: break-word;
+    overflow: auto;
+    position: relative;
+    animation:fadeIn 2s;
+    }
+   
+    @keyframes fadeIn{
+    from{opacity: 0;height: 30px;
+    width: 25px;}
+    to{opacity: 1;height: 300px;
+    width: 250px;}
+    }
+
+    .exit{ 
+    height: 20px;
+    width: 20px;
+    opacity:0 ;
+    position:absolute;
+    top: 0;
+    right: 0;
+    }
+
+    .notes:hover>.exit{
+    opacity: 1;
+    height: 25px;
+    width: 25px;
+    background-color: gray;
+    position:absolute;
+    top: 0;
+    right: 0;
+    } 
+
+    </style>
+</head>
+<body>
+        
+    <h1>MY TASK BOARD</h1> 
+    
+    <div class="form">
+    <table>
+    <tr>
+     <td>TO DO :</td>
+     <td><input class="todo" type="text" autofocus></td>
+    </tr>
+    <tr>
+     <td>DATE :</td>
+     <td><input class="date" type="date"></td>
+    </tr>
+    <tr>
+     <td>TIME  :</td>
+     <td><input class="time" type="time"></td>
+    </tr>
+    </table>
+     
+    <div class="buttons">
+    <button onclick="addTask();">ADD</button> 
+    <button class="delet" onclick="deleteTasks();"><span class="w"></span>DELET TASKS</button>
+    <button onclick="clearInput();">CLEAR</button>
+    <!-- <button onclick="storeg();">SAVE</button> -->
+    </div>  
+    </div>
+
+    <div class="tasksarea"></div>
+
+    <script>
+
+    var todo = document.querySelector(".todo");
+    var date = document.querySelector(".date");
+    var time = document.querySelector(".time");
+    var tasksArea= document.querySelector(".tasksarea");
+    var tasks=[];
+
+    window.onload = opentask;
+    window.onunload=savetask;
+    
+
+    function addTask(){
+    if(todo.value===""||date.value ===""){
+    alert('The Entry "to do"  and  "date" fields are requierd !');
+    return;
+    }
+    var i=tasks.length;
+    var note = document.createElement("div");
+    note.classList.add("notes"); 
+    note.innerText = todo.value 
+
+    var dt = document.createElement("div");
+    dt.classList.add("datime"); 
+    dt.innerHTML = `<p>${reversDate(date.value)}</p>
+                     <p>${time.value}</p>`
+    note.appendChild(dt); 
+
+    var exit = document.createElement("div");
+    exit.innerHTML=`<span class="glyphicon glyphicon-remove"></span>`;
+    exit.classList.add("exit");  
+    exit.setAttribute("id",i);
+    exit.addEventListener("click", Exite);
+    note.appendChild(exit);
+    tasksArea.appendChild(note);
+
+    taskArry(i);
+    i++;
+    clearInput();
+    
+    }
+
+    function taskArry(i){
+    var val =`{"id":"${i}","value":"${todo.value}","date":"${date.value}","time":"${time.value}"}`;
+    val =JSON.parse(val);
+    tasks.push(val);    
+    }
+    
+    function clearInput(){   
+    document.querySelector(".todo").value="";
+    document.querySelector(".date").value="";
+    document.querySelector(".time").value="";
+
+    todo.focus(); 
+   }
+
+   function savetask(){
+    var storeg = JSON.stringify(tasks);
+    localStorage.setItem("usdata" , storeg);
+    }
+
+    function opentask(){
+    var store =JSON.parse(localStorage.getItem("usdata"));
+    for(i=0;i<store.length;i++){
+    var note = document.createElement("div");
+    note.classList.add("notes"); 
+    note.innerText = store[i].value; 
+
+    var dt = document.createElement("div");
+    dt.classList.add("datime"); 
+    dt.innerHTML = `<p>${reversDate(store[i].date)}</p>
+                     <p>${store[i].time}</p>`
+    note.appendChild(dt); 
+
+    var exit = document.createElement("div");
+    exit.innerHTML=`<span class="glyphicon glyphicon-remove">.</span>`;
+    exit.classList.add("exit");
+    exit.setAttribute("id",store[i].id);
+    exit.addEventListener("click", Exite);
+    note.appendChild(exit); 
+    tasksArea.appendChild(note);
+    }
+    tasks=store;   
+    }
+    
+    function Exite(){
+    var temp=[];
+    var index=event.target.parentNode.getAttribute("id");
+    event.target.parentNode.parentNode.remove();
+    for(var i=0;i<tasks.length;i++){
+        
+    if(index==tasks[i].id){
+    tasks.splice(i,1);
+    }
+    }
+    for(var r=0;r<tasks.length;r++){
+    tasks[r].id=r;
+    temp.push(tasks[r]); 
+    document.querySelectorAll(".exit")[r].id=r;
+    }
+    tasks=temp;
+    }
+
+    function deleteTasks(){ 
+    document.querySelector(".tasksarea").innerHTML="";
+    tasks=[];
+    }
+
+    function reversDate(D){    
+    return D.split('-').reverse().join('/');
+    }
+
+    </script>
+    
+</body>
+</html>
